@@ -16,6 +16,12 @@
     <title>Add Translation Team</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
 </head>
 <?php
     if (isset($_SESSION['status'])) {

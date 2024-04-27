@@ -73,19 +73,23 @@ else {
         </div>
         <div class="form-group">
             <label for="genre">Genre:</label>
-            <select class="form-control" id="genreID" name="genreID">
+            <div id="genreCheckboxes">
                 <?php
-                    // Hiển thị danh sách thể loại
+                    // Hiển thị danh sách thể loại dưới dạng các checkbox
                     if ($result_genre->num_rows > 0) {
                         while($row_genre = $result_genre->fetch_assoc()) {
-                            echo "<option value='" . $row_genre["genreID"] . "'>" . $row_genre["genrename"] . "</option>";
+                            // Tạo một checkbox cho mỗi thể loại
+                            echo "<div class='form-check'>";
+                            echo "<input class='form-check-input' type='checkbox' name='genreIDs[]' value='" . $row_genre["genreID"] . "' id='genreID_" . $row_genre["genreID"] . "'>";
+                            echo "<label class='form-check-label' for='genreID_" . $row_genre["genreID"] . "'>" . $row_genre["genrename"] . "</label>";
+                            echo "</div>";
                         }
                     } else {
-                        echo "<option value=''>No genres found</option>";
+                        echo "<p>No genres found</p>";
                     }
                 ?>
-            </select>
-        </div>
+            </div>
+</div>
         <div class="form-group">
             <label for="transteam">TransTeam:</label>
             <select class="form-control" id="transteamID" name="transteamID">
